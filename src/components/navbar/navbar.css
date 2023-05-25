@@ -1,0 +1,9 @@
+.main-navbar {
+    position: sticky!important;
+    top: 0!important;
+    background-color: rgba(249, 249, 249);
+
+    .img {
+        cursor: pointer;
+    }
+}
