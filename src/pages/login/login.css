@@ -5,7 +5,7 @@
     .card {
         background-color: white;
         color: black!important;
-        
+        opacity: .97;
         width: 50%;
         height: 50%!important;
         &--desc{

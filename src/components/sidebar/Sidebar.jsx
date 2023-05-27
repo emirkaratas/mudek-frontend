@@ -6,11 +6,13 @@ import './sidebar.css'
 import { BiArrowBack } from 'react-icons/bi';
 import { FaListAlt } from 'react-icons/fa';
 import { IoMdArrowForward, IoMdSchool } from 'react-icons/io';
-import { AiFillHome,AiOutlineArrowUp } from 'react-icons/ai';
+import { AiFillHome, AiOutlineArrowUp } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 
 
 function Sidebar() {
+    const user = { role: 'Admin' }
+    const processActive = ["/admin/lecturer"]
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
     const [collapsed, setCollapsed] = useState(isMobile)
     const handleCollapse = () => {
@@ -59,18 +61,22 @@ function Sidebar() {
                     Ana Sayfa
                 </MenuItem>
                 <SubMenu
-                    defaultOpen={window.location.pathname === "/test"}
+                    defaultOpen={processActive.includes(window.location.pathname)}
                     label="İşlemler"
                     title={'İşlemler'}
                     icon={<FaListAlt className='sidebar-icon' />}
-                    active={window.location.pathname === "/test"}
+                    active = {processActive.includes(window.location.pathname)}
                 >
-                    <MenuItem
-                        active={window.location.pathname === "/test"}
-                        component={<Link to="/test" />}
-                    >
-                        1
-                    </MenuItem>
+                    {
+                        user.role == "Admin" &&
+                        <MenuItem
+                            active={window.location.pathname === "/admin/lecturer"}
+                            component={<Link to="/admin/lecturer" />}
+                        >
+                            Öğretim Üyeleri
+                        </MenuItem>
+                    }
+
                     <MenuItem
                         active={window.location.pathname === "/2"}
                         component={<Link to="/2" />}
@@ -83,8 +89,8 @@ function Sidebar() {
                 collapsed ? <IoMdArrowForward className='back-button d-none d-sm-block' onClick={handleCollapse} /> : <BiArrowBack className='back-button ' onClick={handleCollapse} />
             }
             {
-                isMobile && <AiOutlineArrowUp onClick={()=>window.scrollTo({top:0, behavior: 'smooth'})} className='top-button'>Test</AiOutlineArrowUp>
-            } 
+                isMobile && <AiOutlineArrowUp onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className='top-button'>Test</AiOutlineArrowUp>
+            }
         </Sidenav>
     )
 }
