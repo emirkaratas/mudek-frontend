@@ -7,11 +7,12 @@ import { BiArrowBack } from 'react-icons/bi';
 import { FaListAlt } from 'react-icons/fa';
 import { IoMdArrowForward, IoMdSchool } from 'react-icons/io';
 import { AiFillHome, AiOutlineArrowUp } from 'react-icons/ai';
+import { useAuth } from '../../contexts/AuthContext'
 import { Link } from 'react-router-dom';
 
 
 function Sidebar() {
-    const user = { role: 'Admin' }
+    const { user } = useAuth()
     const processActive = ["/admin/lecturer"]
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
     const [collapsed, setCollapsed] = useState(isMobile)
@@ -68,7 +69,7 @@ function Sidebar() {
                     active = {processActive.includes(window.location.pathname)}
                 >
                     {
-                        user.role == "Admin" &&
+                        user.roles.includes("Admin") &&
                         <MenuItem
                             active={window.location.pathname === "/admin/lecturer"}
                             component={<Link to="/admin/lecturer" />}

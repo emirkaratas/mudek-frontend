@@ -28,7 +28,8 @@ function LoginPage() {
         navigate(`/`)
       }
       catch (error) {
-        bag.setErrors({ general: error })
+        console.log(error.response.data)
+        bag.setErrors({ general: error.response.data })
       }
     }
   })
