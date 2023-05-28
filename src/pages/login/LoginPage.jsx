@@ -4,10 +4,13 @@ import "./login.css"
 import { Form, Button, Spinner, Alert } from 'react-bootstrap'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import validations from './validations'
+import { useAuth } from '../../contexts/AuthContext'
 import { Link,useNavigate } from 'react-router-dom';
+import { fetchLogin } from '../../services/Api';
 
 function LoginPage() {
   const navigate = useNavigate()
+  const { login } = useAuth()
   const formik = useFormik({
     initialValues: {
       userName: "",
@@ -15,10 +18,14 @@ function LoginPage() {
       checkRemember: false,
     },
     validationSchema: validations,
-    onSubmit: (values, bag) => {
+    onSubmit: async (values, bag) => {
       try {
+        const loginResponse = await fetchLogin({
+          userName:values.userName,
+          password: values.password
+        })
+        login(loginResponse)
         navigate(`/`)
-        // throw "Başaramadık"
       }
       catch (error) {
         bag.setErrors({ general: error })

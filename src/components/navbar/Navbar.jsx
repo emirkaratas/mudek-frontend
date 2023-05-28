@@ -2,9 +2,14 @@ import React from 'react'
 import { FaUser,FaInfoCircle } from 'react-icons/fa'
 import { HiOutlineLogout } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../contexts/AuthContext'
 import "./navbar.css"
 
 function Navbar() {
+  const { logout } = useAuth()
+  const handleLogout = () => {
+
+  }
   return (
     <nav className="navbar navbar-expand-lg p-3 border-bottom border-2 main-navbar">
       <div className="container-fluid">
@@ -23,7 +28,7 @@ function Navbar() {
             </button>
           </Link>
           <Link to="/" className='text-decoration-none'>
-            <button className='btn btn-outline-dark d-flex align-items-center'>
+            <button className='btn btn-outline-dark d-flex align-items-center' onClick={async()=>logout()}>
               <HiOutlineLogout className='h4 m-0 ' />
               <span className='d-none d-sm-inline-block ms-2'>Çıkış Yap</span>
             </button>

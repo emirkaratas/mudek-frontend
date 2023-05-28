@@ -46,7 +46,7 @@ function AdminLecturerPage() {
         setIsCreateModalOpen(false)
     }
 
-    if (isLoading) return 'Yükleniyor...'
+    if (isLoading) return <div className='d-flex h-75 justify-content-center align-items-center'><div className="spinner-border"/></div>
 
     if (error) return 'Hata: ' + error.message
 
@@ -84,7 +84,7 @@ function AdminLecturerPage() {
                     <Popconfirm
                         title="Kullanıcıyı Sil"
                         description="Kullanıcıyı silmek istediğinize emin misiniz?"
-                        onConfirm={()=>handleRemove(record)}
+                        onConfirm={() => handleRemove(record)}
                         okText="Evet"
                         cancelText="Hayır"
                     >
