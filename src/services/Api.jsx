@@ -52,7 +52,8 @@ export const fetchAdminLessons = async () => {
 }
 
 export const fetchLectuterLesson = async (id) => {
-
+    const {data} = await axios.get(`https://localhost:7294/api/Lessons/getallwithdetailsbyid?id=${id}`)
+    return data
 }
 
 export const deleteLesson = async (record) => {

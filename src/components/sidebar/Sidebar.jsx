@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 function Sidebar() {
     const { user } = useAuth()
-    const processAdminActive = ["/admin/lecturer","/admin/lessons"]
+    const processAdminActive = ["/admin/lecturer","/admin/lessons","/lecturer/lessons"]
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
     const [collapsed, setCollapsed] = useState(isMobile)
     const handleCollapse = () => {
@@ -82,6 +82,15 @@ function Sidebar() {
                         <MenuItem
                             active={window.location.pathname === "/admin/lessons"}
                             component={<Link to="/admin/lessons" />}
+                        >
+                            Dersler
+                        </MenuItem>
+                    }
+                    {
+                        user.roles.includes("User") &&
+                        <MenuItem
+                            active={window.location.pathname === "/lecturer/lessons"}
+                            component={<Link to="/lecturer/lessons" />}
                         >
                             Dersler
                         </MenuItem>
