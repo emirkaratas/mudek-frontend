@@ -9,7 +9,7 @@ import validations from './validations'
 function AdminLecturerCreate({ handleCreateCancel }) {
     const addMutation = useMutation(postAdminCreateUser, {
         onSuccess: () => {  
-            queryClient.refetchQueries("admin:users")
+            queryClient.refetchQueries("admin:lessons")
         }
     })
 

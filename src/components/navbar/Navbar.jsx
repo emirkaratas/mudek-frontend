@@ -40,7 +40,7 @@ function Navbar() {
           </Link>
         </div>
       </div>
-      <Modal title="Profil" open={isModalOpen} onCancel={handleCancel} cancelText="Kapat">
+      <Modal title="Profil" open={isModalOpen} onCancel={handleCancel} onOk={handleCancel} cancelText="Kapat">
         <div className='h5'>{user.email}</div>
         <div className='h5'>{user.roles}</div>
       </Modal>

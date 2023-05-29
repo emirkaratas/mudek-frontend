@@ -6,6 +6,7 @@ import Navbar from './components/navbar/Navbar'
 import LoginPage from './pages/login/LoginPage'
 import ProtectedRoute from './pages/protectedRoute/ProtectedRoute'
 import AdminLecturerPage from './pages/admin/lecturer/AdminLecturerPage'
+import AdminLessonsPage from './pages/admin/lesson/AdminLessonsPage'
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="*" element={<Error404 />} />
         <Route path='/admin/*' element={<ProtectedRoute admin={true} />}>
           <Route path='lecturer' element={<Layout children={<AdminLecturerPage />} />} />
+          <Route path='lessons' element={<Layout children={<AdminLessonsPage />} />} />
         </Route>
       </Routes>
     </>

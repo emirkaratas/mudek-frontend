@@ -28,8 +28,8 @@ function AdminLecturerEdit({ modalData, handleCancel }) {
     return (
         <div>
             <Formik initialValues={{
-                fullName: modalData.fullname,
-                username: modalData.userName,
+                fullname: modalData.fullname,
+                userName: modalData.userName,
                 email: modalData.email,
                 password: "",
             }}
@@ -43,32 +43,32 @@ function AdminLecturerEdit({ modalData, handleCancel }) {
                                 <Form.Group className="mt-4 mb-3">
                                     <Form.Label>İsim</Form.Label>
                                     <Form.Control
-                                        id='fullName'
-                                        name='fullName'
+                                        id='fullname'
+                                        name='fullname'
                                         type="text"
-                                        value={values.fullName}
+                                        value={values.fullname}
                                         placeholder="İsim Giriniz"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        isInvalid={touched.fullName && errors.fullName}
-                                        isValid={!errors.fullName}
+                                        isInvalid={touched.fullname && errors.fullname}
+                                        isValid={!errors.fullname}
                                     />
-                                    {touched.fullName && errors.fullName && <div className='text-danger'>{errors.fullName}</div>}
+                                    {touched.fullname && errors.fullname && <div className='text-danger'>{errors.fullname}</div>}
                                 </Form.Group>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Kullanıcı Adı</Form.Label>
                                     <Form.Control
-                                        id='username'
-                                        name='username'
+                                        id='userName'
+                                        name='userName'
                                         type="text"
-                                        value={values.username}
+                                        value={values.userName}
                                         placeholder="Kullanıcı Adı Giriniz"
                                         onChange={handleChange}
                                         onBlur={handleBlur}
-                                        isInvalid={touched.username && errors.username}
-                                        isValid={!errors.username}
+                                        isInvalid={touched.userName && errors.userName}
+                                        isValid={!errors.userName}
                                     />
-                                    {touched.username && errors.username && <div className='text-danger'>{errors.username}</div>}
+                                    {touched.userName && errors.userName && <div className='text-danger'>{errors.userName}</div>}
                                 </Form.Group>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Email</Form.Label>

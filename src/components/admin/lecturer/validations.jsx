@@ -18,17 +18,11 @@ const validations = yup.object().shape({
     userName: yup
         .string()
         .required("Zorunlu Bir Alan"),
-    username: yup
-        .string()
-        .required("Zorunlu Bir Alan"),
     email: yup
         .string()
         .email("Geçerli Bir Mail Giriniz")
         .required("Zorunlu Bir Alan"),
     fullname: yup
-        .string()
-        .required("Zorunlu Bir Alan"),
-    fullName: yup
         .string()
         .required("Zorunlu Bir Alan"),
 })

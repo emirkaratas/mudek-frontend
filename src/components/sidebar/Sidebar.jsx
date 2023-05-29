@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 function Sidebar() {
     const { user } = useAuth()
-    const processActive = ["/admin/lecturer"]
+    const processAdminActive = ["/admin/lecturer","/admin/lessons"]
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
     const [collapsed, setCollapsed] = useState(isMobile)
     const handleCollapse = () => {
@@ -62,11 +62,11 @@ function Sidebar() {
                     Ana Sayfa
                 </MenuItem>
                 <SubMenu
-                    defaultOpen={processActive.includes(window.location.pathname)}
+                    defaultOpen={processAdminActive.includes(window.location.pathname)}
                     label="İşlemler"
                     title={'İşlemler'}
                     icon={<FaListAlt className='sidebar-icon' />}
-                    active = {processActive.includes(window.location.pathname)}
+                    active = {processAdminActive.includes(window.location.pathname)}
                 >
                     {
                         user.roles.includes("Admin") &&
@@ -77,13 +77,15 @@ function Sidebar() {
                             Öğretim Üyeleri
                         </MenuItem>
                     }
-
-                    <MenuItem
-                        active={window.location.pathname === "/2"}
-                        component={<Link to="/2" />}
-                    >
-                        2
-                    </MenuItem>
+                    {
+                        user.roles.includes("Admin") &&
+                        <MenuItem
+                            active={window.location.pathname === "/admin/lessons"}
+                            component={<Link to="/admin/lessons" />}
+                        >
+                            Dersler
+                        </MenuItem>
+                    }
                 </SubMenu>
             </Menu>
             {

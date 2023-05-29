@@ -40,3 +40,31 @@ export const fetchLogin = async (input) => {
     const { data } = await axios.post(`https://localhost:7294/api/Auth/login`, input)
     return data
 }
+
+export const postAdminCreateLesson = async (values) => {
+    const { data } = await axios.post(`https://localhost:7294/api/Lessons/add`, values)
+    return data
+}
+
+export const fetchAdminLessons = async () => {
+    const {data} = await axios.get(`https://localhost:7294/api/Lessons/getallwithdetails`)
+    return data
+}
+
+export const fetchLectuterLesson = async (id) => {
+
+}
+
+export const deleteLesson = async (record) => {
+    const {data} = await axios.delete(`https://localhost:7294/api/Lessons/delete?lessonId=${record}`)
+    return data
+}
+
+export const getPeriods = async () => {
+    const {data} = await axios.get(`https://localhost:7294/api/Periods/getall`)
+    return data
+}
+export const getAddLecturers = async () => {
+    const {data} = await axios.get(`https://localhost:7294/api/Lecturers/getall`)
+    return data
+}

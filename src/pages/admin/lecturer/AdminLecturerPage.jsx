@@ -17,7 +17,7 @@ function AdminLecturerPage() {
             }
         }
     )
-
+        
     const handleRemove = (record) => {
         deleteMutation.mutate(record.id, {
             onSuccess: () => message.success({ content: "Öğretim Üyesi Silindi", key: "admin:delete", duration: 3 }),
