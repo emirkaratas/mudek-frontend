@@ -3,6 +3,8 @@ import React from 'react'
 import { useQuery } from 'react-query'
 import { useAuth } from '../../contexts/AuthContext'
 import { fetchLectuterLesson } from '../../services/Api'
+import { UploadOutlined } from '@ant-design/icons';
+import { Button, Upload } from 'antd';
 
 function LecturerLessonsPage() {
     const { user } = useAuth()
@@ -33,6 +35,16 @@ function LecturerLessonsPage() {
             title: 'Ders Adı',
             dataIndex: 'lessonName',
             key: 'lessonName',
+        },
+        {
+            title: 'Müdek Dökümanları',
+            dataIndex: 'mudekDocs',
+            key: 'mudekDocs',
+            render: (record) => (
+                <Upload >
+                    <Button className='d-flex align-items-center' icon={<UploadOutlined />}>Yükle</Button>
+                </Upload>
+            )
         },
     ]
     return (

@@ -6,6 +6,10 @@
     z-index: 1;
 }
 
+.sidebar {
+    z-index: 2;
+}
+
 .sidebar img {
     width: 100%;
     padding: 20px;

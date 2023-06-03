@@ -69,3 +69,18 @@ export const getAddLecturers = async () => {
     const {data} = await axios.get(`https://localhost:7294/api/Lecturers/getall`)
     return data
 }
+
+export const getSemesters = async () => {
+    const {data} = await axios.get(`https://localhost:7294/api/Periods/getall`)
+    return data
+}
+
+export const deleteSemester = async (record) => {
+    const {data} = await axios.delete(`https://localhost:7294/api/Periods/delete`,record)
+    return data
+}
+
+export const postSemester = async (record) => {
+    const {data} = await axios.post(`https://localhost:7294/api/Periods/add`,record)
+    return data
+}
