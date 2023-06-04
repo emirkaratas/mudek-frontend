@@ -76,7 +76,7 @@ export const getSemesters = async () => {
 }
 
 export const deleteSemester = async (record) => {
-    const {data} = await axios.delete(`https://localhost:7294/api/Periods/delete`,record)
+    const {data} = await axios.delete(`https://localhost:7294/api/Periods/delete?id=${record.id}`)
     return data
 }
 
